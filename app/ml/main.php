@@ -107,14 +107,13 @@ class main extends AWS_CONTROLLER
     public function home_action()
     {
 
-        echo $_SERVER['REQUEST_URI'];
-        die;
 
-//        if (!$this->user_id)
-//        {
-//            HTTP::redirect(base64_encode($_SERVER['REQUEST_URI']));
-//        }
-//
-//        TPL::output('ml/home');
+
+        if (!$this->user_id)
+        {
+            HTTP::redirect(get_js_url('/ml/home/'));
+        }
+
+        TPL::output('ml/home');
     }
 }
