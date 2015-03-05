@@ -38,10 +38,10 @@ class main extends AWS_CONTROLLER
         }
 
 
-        if (!$this->user_id AND !$this->user_info['permission']['visit_site'] AND $_GET['act'] != 'login' AND $_GET['act'] != 'register')
-        {
-            HTTP::redirect(base64_encode($_SERVER['REQUEST_URI']));
-        }
+//        if (!$this->user_id AND !$this->user_info['permission']['visit_site'] AND $_GET['act'] != 'login' AND $_GET['act'] != 'register')
+//        {
+//            HTTP::redirect(base64_encode($_SERVER['REQUEST_URI']));
+//        }
 
         switch ($_GET['act'])
         {
@@ -107,7 +107,10 @@ class main extends AWS_CONTROLLER
     public function home_action()
     {
 
-
+        if (!$this->user_id)
+        {
+            HTTP::redirect(base64_encode($_SERVER['REQUEST_URI']));
+        }
 
         TPL::output('ml/home');
     }
