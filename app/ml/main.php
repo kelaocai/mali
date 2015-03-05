@@ -109,10 +109,10 @@ class main extends AWS_CONTROLLER
 
 
 
-        if (!$this->user_id)
-        {
-            HTTP::redirect(get_js_url('/ml/home/'));
-        }
+//        if (!$this->user_id)
+//        {
+//            HTTP::redirect(get_js_url('/ml/home/'));
+//        }
 
         TPL::output('ml/home');
     }
