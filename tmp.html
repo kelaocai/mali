@@ -38,16 +38,6 @@
 <script src="static/js/h5.js"></script>
 
 <script>
-    //    layer.msg('222');
-    //    alert('a');
-
-    //
-
-    var c1 = document.getElementById("myCanvas1");
-    var ctx1 = c1.getContext("2d");
-
-    //    var c2 = document.getElementById("myCanvas2");
-    //    var cxt2 = c2.getContext("2d");
 
     var img_bg = new Image()
     img_bg.src = "static/img/bei@2x.png"
@@ -55,18 +45,38 @@
     var img_touch = new Image()
     img_touch.src = "static/img/touch@2x.png"
 
-    ctx1.scale(0.5, 0.5);
-    ctx1.drawImage(img_bg, 0, 0);
+    $(function(){
+        var c1 = document.getElementById("myCanvas1");
+        var ctx1 = c1.getContext("2d");
+
+        //    var c2 = document.getElementById("myCanvas2");
+        //    var cxt2 = c2.getContext("2d");
 
 
 
+        ctx1.scale(0.5, 0.5);
+        ctx1.drawImage(img_bg, 0, 0);
 
+        c1.addEventListener('click', function (e) {
+            p = getEventPosition(e);
+            if ((p.x>120&& p.x<180)&&(p.y>40&& p.y<110) ) {
+                //alert('颈椎'+','+p.x+","+p.y);
+                reDraw(c1,ctx1,1);
+            }else if((p.x>120&& p.x<180)&&(p.y>=110&& p.y<210)){
+                reDraw(c1,ctx1,2);
+                //alert('胸椎');
+            }
+            else if((p.x>120&& p.x<180)&&(p.y>=210&& p.y<290)){
+                reDraw(c1,ctx1,3);
+                //alert('腰椎');
+            }
+            else {
+                alert(','+p.x+","+p.y);
+            }
+        }, false);
+    });
 
-
-
-
-
-    function reDraw(count){
+    function reDraw(c1,ctx1,count){
         //clear:
         c1.width=c1.width;
         c1.height=c1.height;
@@ -130,23 +140,7 @@
 
 
 
-    c1.addEventListener('click', function (e) {
-        p = getEventPosition(e);
-        if ((p.x>120&& p.x<180)&&(p.y>40&& p.y<110) ) {
-            //alert('颈椎'+','+p.x+","+p.y);
-            reDraw(1);
-        }else if((p.x>120&& p.x<180)&&(p.y>=110&& p.y<210)){
-            reDraw(2);
-            //alert('胸椎');
-        }
-        else if((p.x>120&& p.x<180)&&(p.y>=210&& p.y<290)){
-            reDraw(3);
-            //alert('腰椎');
-        }
-        else {
-            alert(','+p.x+","+p.y);
-        }
-    }, false);
+
 
 
     function mali() {
