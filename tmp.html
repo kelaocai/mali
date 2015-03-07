@@ -19,34 +19,13 @@
 
     <![endif]-->
 </head>
-<body>
-<div class="container">
-    <div class="header">
+<body style="background-color: #FAF8F2;">
+<div class="container" >
 
-        <h3 class="text-muted">雪时尚38特惠活动</h3>
-    </div>
+    <!--<a class="btn btn-lg btn-success" href="javascript:;" role="button" onclick="test()">TEST</a>-->
 
-    <div class="jumbotron">
-        <h1>标题文案</h1>
-
-        <p class="lead">吧啦吧啦，牛逼的.</p>
-
-        <p><a class="btn btn-lg btn-success" href="javascript:;" role="button" onclick="anmo()">帮他按一下</a></p>
-    </div>
-
-    <div class="row marketing">
-        <div class="col-lg-6">
-
-            <p>活动规则</p>
-        </div>
-
-        <div class="col-lg-6">
-            <h2 >已经有<span id="anmo_count" >1</span>人</h2>为我按摩
-        </div>
-    </div>
-
-    <footer class="footer">
-    </footer>
+    <canvas id="myCanvas1" width="586" height="586" style="margin:20px auto;position: absolute; top:0px;" onclick=""></canvas>
+    <!--<canvas id="myCanvas2" width="586" height="586" style="position: absolute; top:0px;" onclick="test2()"></canvas>-->
 
 </div>
 <!-- /container -->
@@ -56,6 +35,7 @@
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="static/bootcss/js/bootstrap.min.js"></script>
 <script src="static/layer/layer.min.js"></script>
+<script src="static/js/h5.js"></script>
 
 <script>
     //    layer.msg('222');
@@ -63,16 +43,142 @@
 
     //
 
+    var c1 = document.getElementById("myCanvas1");
+    var ctx1 = c1.getContext("2d");
+
+    //    var c2 = document.getElementById("myCanvas2");
+    //    var cxt2 = c2.getContext("2d");
+
+    var img_bg = new Image()
+    img_bg.src = "static/img/bei@2x.png"
+
+    var img_touch = new Image()
+    img_touch.src = "static/img/touch@2x.png"
+
+    ctx1.scale(0.5, 0.5);
+    ctx1.drawImage(img_bg, 0, 0);
+
+
+
+
+
+
+
+
+
+    function reDraw(count){
+        //clear:
+        c1.width=c1.width;
+        c1.height=c1.height;
+
+        ctx1.scale(0.5, 0.5);
+        ctx1.drawImage(img_bg, 0, 0);
+
+        switch (count){
+            case 1:
+                //tip:
+                ctx1.fillStyle="RGBA(252,220,0, 0.8)";
+                ctx1.roundRect(380, 50, 300, 150, 10, true);
+                //tip line:
+                ctx1.beginPath();
+                ctx1.moveTo(300,170);
+                ctx1.lineTo(380,120);
+                ctx1.stroke();
+                //touch img
+                ctx1.drawImage(img_touch,280, 150);
+                //tip text:
+                ctx1.font="30px simsun bold";
+                ctx1.fillStyle="#000000";
+                ctx1.fillText("心慌，失眠!",400,100);
+                break;
+            case 2:
+                ctx1.fillStyle="RGBA(252,220,0, 0.8)";
+                ctx1.roundRect(380, 190, 300, 150, 10, true);
+                //tip line:
+                ctx1.beginPath();
+                ctx1.moveTo(300,310);
+                ctx1.lineTo(380,260);
+                ctx1.stroke();
+                //touch img
+                ctx1.drawImage(img_touch,280, 290);
+                //tip text:
+                ctx1.font="30px simsun bold";
+                ctx1.fillStyle="#000000";
+                ctx1.fillText("脾弱 肾虚!",400,240);
+                break;
+            case 3:
+                ctx1.fillStyle="RGBA(252,220,0, 0.8)";
+                ctx1.roundRect(380, 330, 300, 150, 10, true);
+                //tip line:
+                ctx1.beginPath();
+                ctx1.moveTo(300,480);
+                ctx1.lineTo(380,400);
+                ctx1.stroke();
+                //touch img
+                ctx1.drawImage(img_touch,280, 460);
+                //tip text:
+                ctx1.font="30px simsun bold";
+                ctx1.fillStyle="#000000";
+                ctx1.fillText("阳痿 早泄!",400,380);
+                break;
+        }
+    }
+
+
+
+
+
+
+
+    c1.addEventListener('click', function (e) {
+        p = getEventPosition(e);
+        if ((p.x>120&& p.x<180)&&(p.y>40&& p.y<110) ) {
+            //alert('颈椎'+','+p.x+","+p.y);
+            reDraw(1);
+        }else if((p.x>120&& p.x<180)&&(p.y>=110&& p.y<210)){
+            reDraw(2);
+            //alert('胸椎');
+        }
+        else if((p.x>120&& p.x<180)&&(p.y>=210&& p.y<290)){
+            reDraw(3);
+            //alert('腰椎');
+        }
+        else {
+            alert(','+p.x+","+p.y);
+        }
+    }, false);
+
+
     function mali() {
         layer.alert('关注服务号', 8);
     }
 
-    function anmo(){
-        $.get("moni.php",function(data,status){
+    function test() {
+        cxt2.scale(0.5, 0.5);
+        cxt2.drawImage(img_jz, 100, 20);
+
+    }
+
+
+    function anmo() {
+        $.get("moni.php", function (data, status) {
             $('#anmo_count').html(data);
             alert("数据: " + data + "\n状态: " + status);
         });
     }
+
+    function getEventPosition(ev) {
+        var x, y;
+        if (ev.layerX || ev.layerX == 0) {
+            x = ev.layerX;
+            y = ev.layerY;
+        } else if (ev.offsetX || ev.offsetX == 0) {
+            x = ev.offsetX;
+            y = ev.offsetY;
+        }
+        return {x: x, y: y};
+    }
+
 
 
 </script>
