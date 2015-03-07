@@ -22,6 +22,7 @@
 <body style="background-color: #FAF8F2;">
 <div class="container">
     <img src="static/img/bei@2x.png" style="display: none" id="img_bg">
+    <img src="static/img/touch@2x.png" style="display: none" id="img_touch">
     <!--<a class="btn btn-lg btn-success" href="javascript:;" role="button" onclick="test()">TEST</a>-->
     <div style="margin:20px auto;">
         <canvas id="myCanvas1" width="296" height="296" style="margin:20px auto;position: absolute; top:0px;"></canvas>
@@ -39,23 +40,23 @@
 
 <script>
 
-//    var img_bg = new Image()
-//    img_bg.src = "static/img/bei@2x.png"
+    //    var img_bg = new Image()
+    //    img_bg.src = "static/img/bei@2x.png"
 
-    var img_bg=document.getElementById("img_bg");
 
-    var img_touch = new Image()
-    img_touch.src = "static/img/touch@2x.png"
+
+    var img_bg;
+    var img_touch;
+
+
 
     $(function () {
+
         var c1 = document.getElementById("myCanvas1");
         var ctx1 = c1.getContext("2d");
 
-        //    var c2 = document.getElementById("myCanvas2");
-        //    var cxt2 = c2.getContext("2d");
-
-
-
+        img_bg = document.getElementById("img_bg");
+        img_touch = document.getElementById("img_touch");
 
         c1.addEventListener('click', function (e) {
             p = getEventPosition(e);
