@@ -21,7 +21,7 @@
 </head>
 <body style="background-color: #FAF8F2;">
 <div class="container">
-
+    <img src="static/img/bei@2x.png" style="display: none" id="img_bg">
     <!--<a class="btn btn-lg btn-success" href="javascript:;" role="button" onclick="test()">TEST</a>-->
     <div style="margin:20px auto;">
         <canvas id="myCanvas1" width="296" height="296" style="margin:20px auto;position: absolute; top:0px;"></canvas>
@@ -39,8 +39,10 @@
 
 <script>
 
-    var img_bg = new Image()
-    img_bg.src = "static/img/bei@2x.png"
+//    var img_bg = new Image()
+//    img_bg.src = "static/img/bei@2x.png"
+
+    var img_bg=document.getElementById("img_bg");
 
     var img_touch = new Image()
     img_touch.src = "static/img/touch@2x.png"
