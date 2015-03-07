@@ -18,14 +18,42 @@
 
 
     <![endif]-->
-</head>
-<body style="background-color: #FAF8F2; text-align: center">
-<div class="">
 
-    <!--<a class="btn btn-lg btn-success" href="javascript:;" role="button" onclick="test()">TEST</a>-->
-    <div>
-        <canvas id="myCanvas1" width="296" height="296" style="margin:20px auto; "></canvas>
+    <style type="text/css">
+        .btn-success, .btn-success:active, .btn-success:hover, .btn-success:focus {
+            background-color: #F4A500;
+            border-color: #F4A500;
+        }
+    </style>
+
+
+</head>
+<body style="background-color: #FAF8F2; ">
+<div class="container-fluid">
+
+    <div class="row text-center" style="">
+        <div class="col-md-12 col-xs-12"><h3 style="color: #FD8F80">帮好友赢免费脊柱按摩</h3></div>
     </div>
+
+    <div class="row text-center">
+        <div class="col-md-2 col-xs-4">活动规则>></div>
+        <div class="col-md-10 col-xs-8">已有<span style="font-size: 36px;margin: 0 5px;color: #126169">6</span>人帮TA按摩<h4>共需8人</h4></div>
+    </div>
+
+
+    <div class="row text-center">
+        <div class="col-md-12">
+            <canvas id="myCanvas1" width="296" height="296"></canvas>
+        </div>
+    </div>
+
+    <div class="row text-center">
+        <div class="col-md-12">
+            <a class="btn btn-lg btn-success" href="javascript:;" role="button">我来帮TA按摩</a>
+        </div>
+    </div>
+
+
 </div>
 
 <img src="static/img/bei@2x.png" style="display: none" id="img_bg">
@@ -42,10 +70,8 @@
 <script>
 
 
-
     var img_bg;
     var img_touch;
-
 
 
     $(function () {
@@ -70,7 +96,7 @@
                 //alert('腰椎');
             }
             else {
-                //alert(',' + p.x + "," + p.y);
+                alert(',' + p.x + "," + p.y);
             }
         }, false);
 
