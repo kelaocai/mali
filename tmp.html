@@ -24,6 +24,7 @@
             background-color: #F4A500;
             border-color: #F4A500;
         }
+
     </style>
 
 
@@ -36,7 +37,7 @@
     </div>
 
     <div class="row text-center">
-        <div class="col-md-2 col-xs-4">活动规则>></div>
+        <div class="col-md-2 col-xs-4"><a href="javascript:;" onclick="guize()" style="color: #126169">活动规则>></a></div>
         <div class="col-md-10 col-xs-8">已有<span style="font-size: 36px;margin: 0 5px;color: #126169">6</span>人帮TA按摩<h4>共需8人</h4></div>
     </div>
 
@@ -47,9 +48,9 @@
         </div>
     </div>
 
-    <div class="row text-center">
+    <div class="row text-center" style="margin-bottom: 10px;">
         <div class="col-md-12">
-            <a class="btn btn-lg btn-success" href="javascript:;" role="button">我来帮TA按摩</a>
+            <a class="btn btn-lg btn-success" href="javascript:;" role="button">duang~,帮Ta按一下</a>
         </div>
     </div>
 
@@ -59,6 +60,19 @@
 <img src="static/img/bei@2x.png" style="display: none" id="img_bg">
 <img src="static/img/touch@2x.png" style="display: none" id="img_touch">
 <!-- /container -->
+
+<div class="layer_notice" style="display: none; background-color: #FAF8F1 ;padding: 10px; border-radius: 15px; float: left;line-height: 24px;">
+    1、分享至朋友圈,邀请好友帮忙按摩；获免费体验机会；<br>
+    2、邀请满8个好友有机会获得原价398元的雪时尚特色脊椎养生<br>
+    （包括：特色脊椎养生（约45分钟）+养生羹1份！免费提供使用毛巾、服装、拖鞋、活氧能量水！套餐全长约60分钟），共38个名额。<br>
+    3、所有获奖人员名单将在雪时尚微信图文推送告知。<br>
+
+    <a class="btn btn-lg btn-success" href="javascript:;" role="button" onclick="layer.closeAll();" style="margin: 20px auto;">朕知道了</a>
+
+</div>
+
+
+</div>
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="static/js/jquery-1.11.2.min.js"></script>
@@ -96,7 +110,7 @@
                 //alert('腰椎');
             }
             else {
-                alert(',' + p.x + "," + p.y);
+//                alert(',' + p.x + "," + p.y);
             }
         }, false);
 
@@ -162,8 +176,19 @@
     }
 
 
-    function mali() {
-        layer.alert('关注服务号', 8);
+    function guize() {
+        //layer.alert('关注服务号', 8);
+        $.layer({
+            type: 1,
+            area: ['280', 'auto'],
+            title: false,
+            border: [0],
+            bgcolor: '',
+            shift: 'top',
+            closeBtn:false,
+            shade: [0.5, '#000'],
+            page: {dom : '.layer_notice'}
+        });
     }
 
     function test() {
