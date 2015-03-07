@@ -134,6 +134,7 @@
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="static/bootcss/js/bootstrap.min.js"></script>
 <script src="static/layer/layer.min.js"></script>
+<script src="static/js/hidpi-canvas.min.js"></script>
 <script src="static/js/h5.js"></script>
 
 <script>
@@ -147,6 +148,9 @@
 
         var c1 = document.getElementById("myCanvas1");
         var ctx1 = c1.getContext("2d");
+
+
+
 
         img_bg = document.getElementById("img_bg");
         img_touch = document.getElementById("img_touch");
@@ -172,13 +176,30 @@
         reDraw(c1, ctx1, 1);
     });
 
+
+    var getPixelRatio = function(context) {
+        var backingStore = context.backingStorePixelRatio ||
+                context.webkitBackingStorePixelRatio ||
+                context.mozBackingStorePixelRatio ||
+                context.msBackingStorePixelRatio ||
+                context.oBackingStorePixelRatio ||
+                context.backingStorePixelRatio || 1;
+
+        return (window.devicePixelRatio || 1) / backingStore;
+    };
+
     function reDraw(c1, ctx1, count) {
         //clear:
         c1.width = c1.width;
         c1.height = c1.height;
 
+
+
         ctx1.scale(0.5, 0.5);
-        ctx1.drawImage(img_bg, 0, 0);
+        ratio = getPixelRatio(ctx1);
+        ctx1.drawImage(img_bg, 0,0,586*ratio, 586*ratio);
+
+
 
         switch (count) {
             case 1:
