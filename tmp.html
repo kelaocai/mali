@@ -19,16 +19,17 @@
 
     <![endif]-->
 </head>
-<body style="background-color: #FAF8F2;">
-<div class="container">
-    <img src="static/img/bei@2x.png" style="display: none" id="img_bg">
-    <img src="static/img/touch@2x.png" style="display: none" id="img_touch">
+<body style="background-color: #FAF8F2; text-align: center">
+<div class="">
+
     <!--<a class="btn btn-lg btn-success" href="javascript:;" role="button" onclick="test()">TEST</a>-->
-    <div style="margin:20px auto;">
-        <canvas id="myCanvas1" width="296" height="296" style="margin:20px auto;position: absolute; top:0px;"></canvas>
-        <!--<canvas id="myCanvas2" width="586" height="586" style="position: absolute; top:0px;" onclick="test2()"></canvas>-->
+    <div>
+        <canvas id="myCanvas1" width="296" height="296" style="margin:20px auto; "></canvas>
     </div>
 </div>
+
+<img src="static/img/bei@2x.png" style="display: none" id="img_bg">
+<img src="static/img/touch@2x.png" style="display: none" id="img_touch">
 <!-- /container -->
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -39,9 +40,6 @@
 <script src="static/js/h5.js"></script>
 
 <script>
-
-    //    var img_bg = new Image()
-    //    img_bg.src = "static/img/bei@2x.png"
 
 
 
@@ -72,7 +70,7 @@
                 //alert('腰椎');
             }
             else {
-                alert(',' + p.x + "," + p.y);
+                //alert(',' + p.x + "," + p.y);
             }
         }, false);
 
@@ -91,7 +89,7 @@
             case 1:
                 //tip:
                 ctx1.fillStyle = "RGBA(252,220,0, 0.8)";
-                ctx1.roundRect(380, 50, 300, 150, 10, true);
+                ctx1.roundRect(380, 50, 200, 150, 10, true);
                 //tip line:
                 ctx1.beginPath();
                 ctx1.moveTo(300, 170);
@@ -106,7 +104,7 @@
                 break;
             case 2:
                 ctx1.fillStyle = "RGBA(252,220,0, 0.8)";
-                ctx1.roundRect(380, 190, 300, 150, 10, true);
+                ctx1.roundRect(380, 190, 200, 150, 10, true);
                 //tip line:
                 ctx1.beginPath();
                 ctx1.moveTo(300, 310);
@@ -121,7 +119,7 @@
                 break;
             case 3:
                 ctx1.fillStyle = "RGBA(252,220,0, 0.8)";
-                ctx1.roundRect(380, 330, 300, 150, 10, true);
+                ctx1.roundRect(380, 330, 200, 150, 10, true);
                 //tip line:
                 ctx1.beginPath();
                 ctx1.moveTo(300, 480);
