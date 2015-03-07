@@ -25,6 +25,12 @@
             border-color: #F4A500;
         }
 
+        .hong {
+            color: red;
+            font: bold;
+            font-size: 18px;;
+        }
+
     </style>
 
 
@@ -36,7 +42,10 @@
         <div class="col-md-12 col-xs-12"><h3 style="color: #FD8F80">帮好友赢免费脊柱按摩</h3></div>
     </div>
 
+
     <div class="row text-center">
+
+
         <div class="col-md-2 col-xs-4"><a href="javascript:;" onclick="guize()" style="color: #126169">活动规则>></a></div>
         <div class="col-md-10 col-xs-8">已有<span style="font-size: 36px;margin: 0 5px;color: #126169">6</span>人帮TA按摩<h4>
             共需8人</h4></div>
@@ -45,13 +54,20 @@
 
     <div class="row text-center">
         <div class="col-md-12">
+            <div style="float: left;margin-bottom:-25px;">
+                <img src="static/img/xss.jpg" class="img img-circle" style="width: 50px;border: 2px #ffffff solid;">
+            </div>
             <canvas id="myCanvas1" width="296" height="296"></canvas>
         </div>
     </div>
 
     <div class="row text-center" style="margin-bottom: 10px;">
         <div class="col-md-12">
-            <a class="btn btn-lg btn-success" href="javascript:;" role="button" onclick="guanzhu()">duang~,帮Ta按一下</a>
+            <!--<a class="btn btn-lg btn-success" href="javascript:;" role="button" onclick="guanzhu()">duang~,帮Ta按一下</a>-->
+
+            <a class="btn btn-lg btn-success" href="javascript:;" role="button" onclick="yaoqing()">请好友帮我按摩</a>
+
+
         </div>
     </div>
 
@@ -64,28 +80,51 @@
 
 <div class="layer_notice"
      style="display: none; background-color: #FAF8F1 ;padding: 10px; border-radius: 15px; float: left;line-height: 24px;">
-    1、分享至朋友圈,邀请好友帮忙按摩；获免费体验机会；<br>
-    2、邀请满8个好友有机会获得原价398元的雪时尚特色脊椎养生<br>
-    （包括：特色脊椎养生（约45分钟）+养生羹1份！免费提供使用毛巾、服装、拖鞋、活氧能量水！套餐全长约60分钟），共38个名额。<br>
+    1、分享至朋友圈,<span class="hong">邀请好友</span>帮忙按摩；获免费体验机会；<br>
+    2、邀请满<span class="hong">8个好友</span>有机会获得原价<span class="hong">￥398</span>元的雪时尚特色脊椎养生<br>
+    （包括：特色脊椎养生（约45分钟）+养生羹1份！免费提供使用毛巾、服装、拖鞋、活氧能量水！套餐全长约60分钟），共<span class="hong">38个名额</span>。<br>
     3、所有获奖人员名单将在雪时尚微信图文推送告知。<br>
 
-    <a class="btn btn-lg btn-success" href="javascript:;" role="button" onclick="layer.closeAll();"
-       style="margin: 20px auto;">朕知道了</a>
+    <div style="text-align: center">
+        <a class="btn btn-lg btn-success" href="javascript:;" role="button" onclick="layer.closeAll();"
+                >朕知道了</a>
+    </div>
+
 
 </div>
 
 <div class="layer_guanzhu"
      style="display: none; background-color: #FAF8F1 ;padding: 10px; border-radius: 15px; float: left;line-height: 24px; ">
 
-   <img src="static/img/girl@2x.png" class="img-responsive"
-                                                    style="width: 62px;margin: 0 auto;"><h5 style="text-align: center">duang~,成功助力!</h5>
-        <a class="btn btn-lg btn-success" href="javascript:;" role="button" style="margin: 20px auto;display: block">我也要免费</a>
+    <img src="static/img/girl@2x.png" class="img-responsive"
+         style="width: 62px;margin: 0 auto;"><h5 style="text-align: center">duang~,成功助力!</h5>
+    <a class="btn btn-lg btn-success" href="javascript:;" role="button"
+       style="margin: 20px auto;display: block">我也要免费</a>
     1、关注雪时尚微信服务号，参加活动<br>
     2、分享至朋友圈,邀请好友帮忙按摩，获免费体验机会<br>
 
+</div>
+
+<div class="layer_yaoqing"
+     style="display: none; background-color: #FAF8F1 ;padding: 10px; border-radius: 15px;line-height: 24px;width: 280px; text-align: center ">
+
+    <img src="static/img/girl@2x.png" class="img-responsive"
+         style="width: 62px;margin: 0 auto;"><h5 style="text-align: center">请好友帮忙</h5>
+    发给好友或分享至朋友圈<br>邀请<span class="hong">8个好友</span>帮忙，赢免费脊柱按摩<br>
+    <a class="btn btn-lg btn-success" href="javascript:;" role="button" style="margin: 20px auto;display: block"
+       onclick="layer.closeAll();">马上邀请</a>
 
 
 </div>
+
+
+<!--<div class="layer_guid"-->
+<!--style="display: block; position: absolute;right:0px; top:0px;"  align="right">-->
+
+<!--<img src="static/img/girl@2x.png">-->
+
+
+<!--</div>-->
 
 
 </div>
@@ -154,9 +193,10 @@
                 //touch img
                 ctx1.drawImage(img_touch, 280, 150);
                 //tip text:
-                ctx1.font = "30px simsun bold";
+                ctx1.font = "24px simsun bold";
                 ctx1.fillStyle = "#000000";
-                ctx1.fillText("心慌，失眠!", 400, 100);
+                ctx1.fillText("眩晕，头痛", 400, 100);
+                ctx1.fillText("溃疡，颈痛", 400, 140);
                 break;
             case 2:
                 ctx1.fillStyle = "RGBA(252,220,0, 0.8)";
@@ -169,9 +209,10 @@
                 //touch img
                 ctx1.drawImage(img_touch, 280, 290);
                 //tip text:
-                ctx1.font = "30px simsun bold";
+                ctx1.font = "24px simsun bold";
                 ctx1.fillStyle = "#000000";
-                ctx1.fillText("脾弱 肾虚!", 400, 240);
+                ctx1.fillText("肝病，胃炎", 400, 240);
+                ctx1.fillText("糖尿病，心脏病", 400, 280);
                 break;
             case 3:
                 ctx1.fillStyle = "RGBA(252,220,0, 0.8)";
@@ -184,9 +225,11 @@
                 //touch img
                 ctx1.drawImage(img_touch, 280, 460);
                 //tip text:
-                ctx1.font = "30px simsun bold";
+                ctx1.font = "24px simsun bold";
                 ctx1.fillStyle = "#000000";
-                ctx1.fillText("阳痿 早泄!", 400, 380);
+                ctx1.fillText("便秘，子宫炎", 400, 380);
+                ctx1.fillText("腹泻，结石", 400, 420);
+                ctx1.fillText("痛经", 400, 460);
                 break;
         }
     }
@@ -204,6 +247,20 @@
             closeBtn: false,
             shade: [0.5, '#000'],
             page: {dom: '.layer_notice'}
+        });
+    }
+
+    function yaoqing() {
+        //layer.alert('关注服务号', 8);
+        $.layer({
+            type: 1,
+            title: false,
+            area: ['280', 'auto'],
+            border: [0],
+            bgcolor: '',
+            closeBtn: false,
+            shade: [0.5, '#000'],
+            page: {dom: '.layer_yaoqing'}
         });
     }
 
