@@ -65,7 +65,7 @@
         <div class="col-md-12">
             <!--<a class="btn btn-lg btn-success" href="javascript:;" role="button" onclick="guanzhu()">duang~,帮Ta按一下</a>-->
 
-            <a class="btn btn-lg btn-success" href="javascript:;" role="button" onclick="yaoqing()">请好友帮我按摩</a>
+            <a class="btn btn-lg btn-success" href="javascript:;" role="button" onclick="guid()">请好友帮我按摩</a>
 
 
         </div>
@@ -112,7 +112,16 @@
          style="width: 62px;margin: 0 auto;"><h5 style="text-align: center">请好友帮忙</h5>
     发给好友或分享至朋友圈<br>邀请<span class="hong">8个好友</span>帮忙，赢免费脊柱按摩<br>
     <a class="btn btn-lg btn-success" href="javascript:;" role="button" style="margin: 20px auto;display: block"
-       onclick="layer.closeAll();">马上邀请</a>
+       onclick="guid()">马上邀请</a>
+
+
+</div>
+
+
+<div class="layer_guid"
+     style="display: none; width: 100%;height: 100%" onclick="layer.closeAll()">
+
+    <img src="static/img/guid_timeline.png" class="img-responsive" style="width: 90%">
 
 
 </div>
@@ -303,9 +312,19 @@
     }
 
 
-    function test() {
-        cxt2.scale(0.5, 0.5);
-        cxt2.drawImage(img_jz, 100, 20);
+    function guid() {
+        layer.closeAll();
+        $.layer({
+            type: 1,
+            title: false,
+            border: [0],
+            bgcolor: '',
+            shadeClose:true,
+            closeBtn:false,
+            shift: 'top',
+            shade: [0.5, '#000'],
+            page: {dom: '.layer_guid'}
+        });
 
     }
 
